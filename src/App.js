@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import  Card  from './compennets/Card';
+import {useEffect,useState} from 'react'
+import {getMovise} from "./api/apiCall";
+
 
 function App() {
+useEffect(()=>{
+  getd()
+},[])
+ 
+const [movise,setMovise]=useState()
+const [toggle,setToggle]=useState(false)
+const  getd =async()=>{
+
+  const res= await getMovise()
+  setMovise(res.data)
+  console.log(res.data);
+}
+
+ const show=(e)=>{
+  //  e.target.classList.add('active')
+  setToggle(true)
+ }
+ const hidde=()=>{
+   setToggle(false)
+ }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <Card hidde={hidde} show={show} toggle={toggle} movise={movise}/>
   );
 }
 

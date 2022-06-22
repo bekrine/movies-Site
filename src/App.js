@@ -1,7 +1,7 @@
 import  Card  from './compennets/Card';
 import {useEffect,useState} from 'react'
 import {getMovise} from "./api/apiCall";
-
+import Navbar from './compennets/Navbar';
 
 function App() {
 useEffect(()=>{
@@ -25,7 +25,10 @@ const  getd =async()=>{
    setToggle(false)
  }
   return (
+    <>
+    <Navbar/>
      <Card hidde={hidde} show={show} toggle={toggle} movise={movise}/>
+    </>
   );
 }
 

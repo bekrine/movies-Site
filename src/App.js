@@ -1,6 +1,10 @@
-import  Card  from './compennets/Card';
+import { Routes,Route } from 'react-router-dom';
 import {useEffect,useState} from 'react'
 import {getMovise} from "./api/apiCall";
+import Home from './compennets/Home'
+import DetailMovise from './compennets/DetailMovise'
+import Recherche from './compennets/Recherche';
+import  Card  from './compennets/Card';
 import Navbar from './compennets/Navbar';
 
 function App() {
@@ -27,7 +31,12 @@ const  getd =async()=>{
   return (
     <>
     <Navbar/>
+    <Routes>
+    <Route path='/' element={<Home/>}/>
+    <Route path='/detailmovise' element={<DetailMovise/>}/>
+    <Route path='/recherch' element={<Recherche/>}/>
      <Card hidde={hidde} show={show} toggle={toggle} movise={movise}/>
+    </Routes>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function Navbar() {
   return (
@@ -16,7 +17,9 @@ function Navbar() {
         </div>
         <div>
             <span>
+                <Link to={'/recherche'}>
                 recherch
+                </Link>
             </span>
         </div>
     </div>
